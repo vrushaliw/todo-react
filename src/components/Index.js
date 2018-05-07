@@ -12,20 +12,34 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    this.props.collection.fetch().done(function(){
-      // this.setState((prevState, props) => {
-      //   return {count: prevState.count + 1};
-      // });
-
+    this.props.collection.on("change", function(){
+      this.forceUpdate()
     }.bind(this));
-
+    this.props.collection.on("add", function(){
+      this.forceUpdate()
+    }.bind(this));
+    this.props.collection.on("remove", function(){
+      this.forceUpdate()
+    }.bind(this));
+    this.props.collection.on("reset", function(){
+      this.forceUpdate()
+    }.bind(this));
+    this.props.collection.fetch();
   };
 
   componentWillUnmount() {
-    this.props.collection.on("change", this.forceUpdate);
-    this.props.collection.on("add", this.forceUpdate);
-    this.props.collection.on("remove", this.forceUpdate);
-    this.props.collection.on("reset", this.forceUpdate);
+    this.props.collection.on("change", function(){
+      this.forceUpdate()
+    }.bind(this));
+    this.props.collection.on("add", function(){
+      this.forceUpdate()
+    }.bind(this));
+    this.props.collection.on("remove", function(){
+      this.forceUpdate()
+    }.bind(this));
+    this.props.collection.on("reset", function(){
+      this.forceUpdate()
+    }.bind(this));
   };
 
   render () {

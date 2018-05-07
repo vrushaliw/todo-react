@@ -13,7 +13,7 @@ var DefaultRouter = Backbone.Router.extend({
     ":collection_name": "index",
   },
   index: function(collection_name){
-    ReactDOM.render(<List metadata={global_metadata.todo_list} collection={new GeneralizeCollection([], {metadata: global_metadata.todo_list})} />, document.getElementById('root'));
+    ReactDOM.render(<List metadata={global_metadata.todo_list} collection={new GeneralizeCollection([], {metadata: global_metadata.todo_list})} />, document.getElementById('AppBody'));
   },
   show: function(collection_name, id){
 
